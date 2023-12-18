@@ -86,7 +86,7 @@ jobs:
       - name: Publish
         run: dotnet publish --output src/CredentialProvider/bin/publish
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: NuGet.TokenCredentialProvider
           path: src/CredentialProvider/bin/publish
@@ -133,7 +133,7 @@ jobs:
       - run: cat NuGet.TokenCredentialProvider.log
         if: always()
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: my-log
           path: NuGet.TokenCredentialProvider.log
@@ -187,7 +187,7 @@ jobs:
       - if: ${{ failure() && steps.diff.outcome == 'failure' }}
         name: Upload Artifact
         id: upload
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: dist
           path: dist/
